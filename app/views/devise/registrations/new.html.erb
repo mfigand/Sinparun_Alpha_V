@@ -1,0 +1,60 @@
+<header id="fh5co-header" class="fh5co-cover" data-section="home" role="banner" style="background-image:url(https://freehtml5.co/demos/run/images/img_bg_1.jpg);" data-stellar-background-ratio="0.5">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="display-t">
+          <div class="display-tc animate-box" data-animate-effect="fadeIn" style="text-align: center;">
+
+            <h2 class="">Sign up</h2>
+
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name),html: { multipart: true }) do |f| %>
+              <div class="sync_label">
+                <%= devise_error_messages! %>
+              </div>
+
+                <div class="field">
+                  <%= f.label :name %><br />
+                  <%= f.text_field :name, autofocus: true, required:'' %>
+                </div>
+
+                <div class="field">
+                  <%= f.label :email %><br />
+                  <%= f.email_field :email, autofocus: true, required:'' %>
+                </div>
+
+                <div class="field">
+                  <%= f.label :password %>
+                  <% if @minimum_password_length %>
+                  <em>(<%= @minimum_password_length %> characters minimum)</em>
+                  <% end %><br />
+                  <%= f.password_field :password, autocomplete: "off", required:'' %>
+                </div>
+
+                <div class="field">
+                  <%= f.label :password_confirmation %><br />
+                  <%= f.password_field :password_confirmation, autocomplete: "off", required:'' %>
+                </div>
+
+                <div class="field" id="avatar_field" >
+                  <%= f.label :avatar %><br />
+                  <%= f.file_field :avatar %>
+                </div>
+
+
+                <div class="actions">
+                  <%= f.submit "Sign up" %>
+                </div>
+              <% end %>
+
+            <%= render "devise/shared/links" %>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+

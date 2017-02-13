@@ -1,0 +1,156 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+  <title>SinpaRun</title> 
+  <link rel="shortcut icon" href="/images/favicon.png" />
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-track' => true %>
+  <%= javascript_include_tag 'application', 'data-track' => true %>
+  <%= csrf_meta_tags %>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Recive rewards for each kms you run" />
+  <meta name="keywords" content="run, runner, running, sinpa, sinparun, ruby on rails, html5, css3, mobile first, responsive" />
+  <meta name="author" content="Manuel_Figueroa" />
+
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,700,800" rel="stylesheet">
+
+  </head>
+  <body>
+    
+  <div class="fh5co-loader"></div>
+  
+  <div id="page">
+  <nav class="fh5co-nav" role="navigation">
+    <div class="top">
+      <div class="container">
+        <div class="row">
+          <div class="">
+            <div class=" col-xs-6 text-left">
+              <% if user_signed_in? %>
+                <a class=" sign_link" href="<%= user_path(current_user.id)%>"><%= current_user.name %></a>
+              <% end %>
+            </div>
+            <div class="col-xs-6 text-right">
+              <p class="num">Follow us on: </p>
+              <ul class="fh5co-social">
+                <li><a href="https://www.facebook.com/sinparun/"><i class="icon-facebook"></i></a></li>
+                <li><a href="https://www.instagram.com/sinparun/"><i class="icon-instagram"></i></a></li>
+                <li><a href="https://twitter.com/sinparun"><i class="icon-twitter"></i></a></li>
+                <li><a href="https://github.com/mfigand"><i class="icon-github"></i></a></li>
+                <% if user_signed_in? %>
+                  <li><%= link_to 'Sign out', destroy_user_session_path, method: 'DELETE', class: 'sign_out' %></li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="top-menu">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-2">
+            <div id="fh5co-logo"><a href="/">SinpaRun<span>.</span></a></div>
+          </div>
+          <div class="col-xs-10 text-right menu-1">
+            <ul>
+              <!-- <li class="active"><a href="index.html">Home</a></li> -->
+              <li><a href="work.html">Work</a></li>
+              <li><a href="about.html">About</a></li>
+              <li class="has-dropdown">
+                <a href="services.html">Services</a>
+                <ul class="dropdown">
+                  <li><a href="#">Web Design</a></li>
+                  <li><a href="#">eCommerce</a></li>
+                  <li><a href="#">Branding</a></li>
+                  <li><a href="#">API</a></li>
+                </ul>
+              </li>
+              <li><a href="contact.html">Contact</a></li>
+              <li class="btn-cta"><a href= <%= new_user_session_path %> ><span>Login</span></a></li>
+            </ul>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </nav>
+
+
+
+
+  <%= yield %>
+
+
+  
+
+  <footer id="fh5co-footer" role="contentinfo">
+    <div class="container">
+      <div class="row row-pb-md">
+        <div class="col-md-4 fh5co-widget">
+          <h3>SinpaRun mission.</h3>
+          <p>You are very important for us and we want to keep you healthy thas why SinpaRun allways strive hard to give you the rewards you deserve. You are our champ, so keep on going</p>
+          <p><a class="btn btn-primary btn-outline with-arrow" href="#">Learn More <i class="icon-arrow-right"></i></a></p>
+        </div>
+        <div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1">
+          <ul class="fh5co-footer-links">
+            <li><a href="#">About</a></li>
+            <li><a href="#">Help</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Terms</a></li>
+            <li><a href="#">Meetups</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1">
+          <ul class="fh5co-footer-links">
+            <li><a href="#">Shop</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Testimonials</a></li>
+            <li><a href="#">Handbook</a></li>
+            <li><a href="#">Held Desk</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1">
+          <ul class="fh5co-footer-links">
+            <li><a href="#">Find Designers</a></li>
+            <li><a href="#">Find Developers</a></li>
+            <li><a href="#">Teams</a></li>
+            <li><a href="#">Advertise</a></li>
+            <li><a href="#">API</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row copyright">
+        <div class="col-md-12 text-center">
+          <p>
+            <small class="block">&copy; 2016 Sinparun. All Rights Reserved.</small> 
+            <small class="block">Designed by <a href="https://www.linkedin.com/in/manuelfigueroaandrade/?trk=nav_responsive_tab_profile" target="_blank">Manuel Figueroa</a></small>
+          </p>
+          <p>
+            <ul class="fh5co-social-icons">
+              <li><a href="https://www.facebook.com/sinparun/"><i class="icon-facebook"></i></a></li>
+              <li><a href="https://www.instagram.com/sinparun/"><i class="icon-instagram"></i></a></li>
+              <li><a href="https://twitter.com/sinparun"><i class="icon-twitter"></i></a></li>
+              <li><a href="https://www.youtube.com/channel/UC45kIGfvI80mE99cDAlwjgA"><i class="icon-youtube"></i></a></li>
+            </ul>
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+  </div>
+
+  <div class="gototop js-top">
+    <a href="#" data-nav-section="home"><i class="icon-arrow-up"></i></a>
+  </div>
+  
+ 
+
+  </body>
+</html>
+
