@@ -6,7 +6,15 @@
         <div class="display-t">
           <div class="display-tc animate-box" data-animate-effect="fadeIn" style="text-align: center;">
 
-            <h2 class="">Sign up</h2>
+            <h2 class="">Sign up <%= params[:type] ? params[:type].capitalize : "" %></h2>
+
+            <% if params[:type] == "user" %>
+              <% resource = User.new %>
+              <% resource_name = :user %>
+            <% elsif params[:type] == "company" %>
+              <% resource = Company.new %>
+              <% resource_name = :company %>
+            <% end %>
 
             <%= form_for(resource, as: resource_name, url: registration_path(resource_name),html: { multipart: true }) do |f| %>
               <div class="sync_label">
