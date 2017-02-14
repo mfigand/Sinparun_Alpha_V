@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   before_action :authenticate_user!, except: :update
 
   def index
@@ -22,6 +23,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @imgBackground = 1==2 ? "" : "https://freehtml5.co/demos/run/images/img_bg_1.jpg"
   end
 
   def destroy
