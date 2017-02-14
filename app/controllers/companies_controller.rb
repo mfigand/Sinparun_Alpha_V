@@ -1,6 +1,6 @@
 class CompaniesController < ApplicationController
 
-    before_action :authenticate_companies!, except: :update
+    before_action :authenticate_company!, except: :update
 
   def index
     @allCompanies = Company.all

@@ -29,6 +29,8 @@
             <div class=" col-xs-6 text-left">
               <% if user_signed_in? %>
                 <a class=" sign_link" href="<%= user_path(current_user.id)%>"><%= current_user.name %></a>
+              <% elsif company_signed_in? %>
+                <a class=" sign_link" href="<%= company_path(current_company.id)%>"><%= current_company.name %></a>
               <% end %>
             </div>
             <div class="col-xs-6 text-right">
@@ -40,6 +42,8 @@
                 <li><a href="https://github.com/mfigand"><i class="icon-github"></i></a></li>
                 <% if user_signed_in? %>
                   <li><%= link_to 'Sign out', destroy_user_session_path, method: 'DELETE', class: 'sign_out' %></li>
+                <% elsif company_signed_in? %>
+                  <li><%= link_to 'Sign out', destroy_company_session_path, method: 'DELETE', class: 'sign_out' %></li>
                 <% end %>
               </ul>
             </div>
