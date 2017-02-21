@@ -25,6 +25,7 @@ body {
 .useravatar img{
   border-radius: 100px;
   max-height: 180px;
+  max-width: 180px;
 }
 
 .well{
@@ -110,7 +111,7 @@ h1, h2, h3, h4, h5, h6, figure {
   padding: 0;
   width: 100%;
   padding: 0;
-  z-index: 1001;
+  z-index: 1;
 }
 .fh5co-nav .top-menu {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);

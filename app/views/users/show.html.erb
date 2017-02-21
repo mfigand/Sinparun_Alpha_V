@@ -10,11 +10,11 @@
             <div class="col-lg-12 col-sm-12">
               <div class="col-lg-2 col-sm-2 card hovercard" >
 
-                  <div class="useravatar">
-                      <img alt="" src=<%= current_user ? "https://scontent-mad1-1.xx.fbcdn.net/v/t31.0-8/13938230_10157295278545013_42219120490290427_o.jpg?oh=f5e9bcc38d8479b413743e0f332d345b&oe=594C0F74" : "" %>>
+                  <div class="useravatar pop">
+                      <img id="user_avatar" alt=<%= current_user.name %> src=<%= current_user.avatar.url(:medium) %>>
                   </div>
                   <div class="card-info"> 
-                      <span class="card-title"><%= current_user.name %></span>
+                      <span class="card-title"> <a href=<%= edit_user_path(current_user.id) %> style="color: #828282"><%= current_user.name %></a></span>
                   </div>
 
               </div>
@@ -73,6 +73,16 @@
       </div>
     </div>
   </div>
+
+    <!-- Modal -->
+<div id="myModal" class="modal">
+  <!-- The Close Button -->
+  <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+  <!-- Modal Content (The Image) -->
+  <img class="modal-content" id="img01">
+  <!-- Modal Caption (Image Text) -->
+  <div id="caption"></div>
+</div>
 </header>
 
 <div id="fh5co-services" class="fh5co-bg-section">
@@ -195,4 +205,6 @@
       </div>
     </div>
   </div>
+
+
 
