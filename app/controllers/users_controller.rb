@@ -53,28 +53,28 @@ class UsersController < ApplicationController
 
   #Specific methods
   def sync_account_nike
-   if current_user.kms.length == 0
+   if current_user.km == nil
      set_new_runner = User.new_runner_nike(current_user, params)
-     render json: set_new_runner_nike, status: 201
-   elsif current_user.kms[0].nike_last_total_kms == 0
+     render json: set_new_runner, status: 201
+   elsif current_user.km.nike_last_total_kms == 0
      set_new_nike_account = User.new_nike_account(current_user, params)
      render json: set_new_nike_account, status: 201
    else
     update_runner_account = User.update_runner_nike(current_user, params)
-     render json:update_runner_account, status: 201
+     render json: update_runner_account, status: 201
    end
  end
 
  def sync_account_runtastic
-   if current_user.kms.length == 0
+   if current_user.km == nil
      set_new_runner = User.new_runner_runtastic(current_user, params)
      render json: set_new_runner, status: 201
-   elsif current_user.kms[0].runtastic_last_total_kms == 0
+   elsif current_user.km.runtastic_last_total_kms == 0
      set_new_runtastic_account = User.new_runtastic_account(current_user, params)
      render json: set_new_runtastic_account, status: 201
    else
     update_runner_account = User.update_runner_runtastic(current_user, params)
-     render json:update_runner_account, status: 201
+     render json: update_runner_account, status: 201
    end
  end
 

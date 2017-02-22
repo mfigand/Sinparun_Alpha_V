@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170213111715) do
+ActiveRecord::Schema.define(version: 20170222111336) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,20 @@ ActiveRecord::Schema.define(version: 20170213111715) do
   add_index "companies", ["email"], name: "index_companies_on_email", unique: true, using: :btree
   add_index "companies", ["reset_password_token"], name: "index_companies_on_reset_password_token", unique: true, using: :btree
 
+  create_table "kms", force: :cascade do |t|
+    t.integer  "sinparun_kms",             default: 0
+    t.integer  "total_kms",                default: 0
+    t.integer  "nike_last_total_kms",      default: 0
+    t.integer  "runtastic_last_total_kms", default: 0
+    t.integer  "level",                    default: 0
+    t.integer  "races",                    default: 0
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+    t.integer  "user_id"
+  end
+
+  add_index "kms", ["user_id"], name: "index_kms_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -62,4 +76,5 @@ ActiveRecord::Schema.define(version: 20170213111715) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "kms", "users"
 end

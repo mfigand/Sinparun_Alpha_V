@@ -31,7 +31,7 @@
                   </div>
                   <div class="btn-group" role="group">
                       <button type="button" id="following" class="btn btn-default" href="#tab3" data-toggle="tab"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                          <div class="hidden-xs">Rewards</div>
+                          <div class="hidden-xs">Synchronize kms</div>
                       </button>
                   </div>
               </div>
@@ -41,14 +41,16 @@
 
                   <div class="col-lg-12 col-sm-12 tab-pane fade in active" id="tab1">
                     <div class="col-lg-4 col-sm-4">
-                      <h3>Sinpa kms</h3>
+                      <h5 class="kms_counter"><%= current_user.km == nil ? 0 : current_user.km.sinparun_kms %></h5>
+                      <h5>Kms Sinpa</h5>
                     </div>
                     <div class="col-lg-4 col-sm-4">
-                      <h3>Total kms</h3>
+                      <h5 class="total_kms_counter"><%= current_user.km == nil ? 0 : current_user.km.total_kms %></h5>
+                       <h5>Total kms</h5>
                     </div>
                     <div class="col-lg-4 col-sm-4">
-                      <i class="icon-star"></i>
-                      <h3>Level <%= current_user.name %></h3>
+                      <h5 class="level_counter"><%= current_user.km == nil ? 0 : current_user.km.level %></h5>
+                      <h5><i class="icon-star"></i> Level</h5>
                     </div>
                   </div>
                   
@@ -62,7 +64,40 @@
                   </div>
 
                   <div class="col-lg-12 col-sm-12 tab-pane fade in" id="tab3">
-                    <h3>My rewards</h3>
+
+                    <h6 class="message"></h6>
+
+                    <div class="col-sm-2">
+                      <button class="js-btn-nike sync_button" type="button" name="button">
+                        <img src="/images/nike_logo.jpg" alt="" />
+                      </button>
+                    </div>
+                    <div class="col-sm-2">
+                      <button class="js-btn-runtastic sync_button" type="button" name="button">
+                        <img src="/images/runtastic.png" alt="" />
+                      </button>
+                    </div>
+                    <div class="col-sm-2">
+                      <button class="sync_button tooltipped " data-position="top" data-delay="50" data-tooltip="Coming soon" type="button" name="button">
+                        <img src="/images/endomondo.jpg" alt="" />
+                      </button>
+                    </div>
+                    <div class="col-sm-2">
+                      <button class="sync_button tooltipped " data-position="top" data-delay="50" data-tooltip="Coming soon" type="button" name="button">
+                        <img src="/images/runkeeper_icon.png" alt="" />
+                      </button>
+                    </div>
+                    <div class="col-sm-2">
+                      <button class="sync_button tooltipped " data-position="top" data-delay="50" data-tooltip="Coming soon" type="button" name="button">
+                        <img src="/images/sportstracker.png" alt="" />
+                      </button>
+                    </div>
+                    <div class="col-sm-2">
+                      <button class="sync_button tooltipped " data-position="top" data-delay="50" data-tooltip="Coming soon" type="button" name="button">
+                        <img src="/images/tomtom.png" alt="" />
+                      </button>
+                    </div>
+
                   </div>
                 </div>
               </div>
