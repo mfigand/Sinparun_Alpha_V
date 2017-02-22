@@ -33,9 +33,16 @@ class User < ActiveRecord::Base
   end
 
   def self.new_nike_account(current_user,params)
-    current_user.km.nike_last_total_kms = params[:totalDistance].to_i
-    current_user.km.save
-    current_user.km
+    #For new account initialization get 10kms for free
+    user_kms = current_user.km
+    user_kms.nike_last_total_kms = params[:totalDistance].to_i
+    user_kms.sinparun_kms = user_kms.sinparun_kms + 10
+    user_kms.total_kms = user_kms.total_kms + 10
+    kms = user_kms.total_kms
+    level = kms/100 == 0 ? 1 : (kms/100 + 1)
+    user_kms.level = level
+    user_kms.save
+    user_kms
   end
 
   def self.update_runner_nike(current_user,params)
@@ -57,6 +64,7 @@ class User < ActiveRecord::Base
   end
 
   def self.new_runner_runtastic(current_user,params)
+    #New users get 10kms for free
     current_user_kms = Km.create(sinparun_kms:100,
      total_kms:100,
      runtastic_last_total_kms:params[:totalDistance].to_i,
@@ -64,8 +72,14 @@ class User < ActiveRecord::Base
   end
 
   def self.new_runtastic_account(current_user,params)
+    #For new account initialization get 10kms for free
     user_kms = current_user.km
     user_kms.runtastic_last_total_kms = params[:totalDistance].to_i
+    user_kms.sinparun_kms = user_kms.sinparun_kms + 10
+    user_kms.total_kms = user_kms.total_kms + 10
+    kms = user_kms.total_kms
+    level = kms/100 == 0 ? 1 : (kms/100 + 1)
+    user_kms.level = level
     user_kms.save
     user_kms
   end

@@ -55,26 +55,32 @@ class UsersController < ApplicationController
   def sync_account_nike
    if current_user.km == nil
      set_new_runner = User.new_runner_nike(current_user, params)
+     set_new_runner.notice = "Welcome, you just initialized your Nike account, next time you synchronize your new kms will be reflected. Meanwhile we give you 10km free effort"
      render json: set_new_runner, status: 201
    elsif current_user.km.nike_last_total_kms == 0
      set_new_nike_account = User.new_nike_account(current_user, params)
+     set_new_nike_account.notice = "You just initialized your Nike account, next time you synchronize your new kms will be reflected. Meanwhile we give you 10km free effort"
      render json: set_new_nike_account, status: 201
    else
     update_runner_account = User.update_runner_nike(current_user, params)
-     render json: update_runner_account, status: 201
+    update_runner_account.notice = "Your new Nike kms, have been updated!"
+    render json: update_runner_account, status: 201
    end
  end
 
  def sync_account_runtastic
    if current_user.km == nil
      set_new_runner = User.new_runner_runtastic(current_user, params)
+     set_new_runner.notice = "Welcome, you just initialized your Runtastic account, next time you synchronize your new kms will be reflected. Meanwhile we give you 10km free effort"
      render json: set_new_runner, status: 201
    elsif current_user.km.runtastic_last_total_kms == 0
      set_new_runtastic_account = User.new_runtastic_account(current_user, params)
+     set_new_runtastic_account.notice = "You just initialized your Runtastic account, next time you synchronize your new kms will be reflected. Meanwhile we give you 10km free effort"
      render json: set_new_runtastic_account, status: 201
    else
     update_runner_account = User.update_runner_runtastic(current_user, params)
-     render json: update_runner_account, status: 201
+    update_runner_account.notice = "Your new Runtastic kms, have been updated!"
+    render json: update_runner_account, status: 201
    end
  end
 

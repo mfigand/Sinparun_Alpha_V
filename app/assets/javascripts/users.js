@@ -4,7 +4,7 @@
 window.onload = function() {
 
   if($('.js-btn-nike').length){
-    $(".js-btn-nike").on("click", getActivity);
+    $(".js-btn-nike").on("click", getActivity_nike);
   }
   if($('.js-btn-runtastic').length){
     $(".js-btn-runtastic").on("click", getActivityRuntastic);
@@ -33,33 +33,33 @@ window.onload = function() {
 
 };
 
-  var getActivity = function (){
+  function get_kmsError(error){
+    if (error.status == 406){
+      $(".status_message").text(error.responseText)
+    }
+    else {
+      $(".status_message").text("Sorry synchronization error")
+    }
+  };
+
+  var getActivity_nike = function (){
     $('.kms_counter').empty();
     $('.total_kms_counter').empty();
     $('.level_counter').empty();
     // $('.races_counter').empty();
 
     var activity_request = $.get('/api_sinparun/nike');
-    activity_request.done(get_kms);
+    activity_request.done(get_kms_nike);
   };
 
-  function get_kms(response){
+  function get_kms_nike(response){
     var sync_acount = $.get('/users/sync_account/nike', response);
-    sync_acount.done(get_kms_response);
+    sync_acount.done(get_kms_nike_response);
     sync_acount.fail(get_kmsError);
   };
 
-  function get_kmsError(error){
-    if (error.status == 406){
-      $(".message").text(error.responseText)
-    }
-    else {
-      $(".message").text("Sorry synchronization error")
-    }
-  };
-
-  function get_kms_response(kms_response){
-    $(".message").text("updated synchronization");
+  function get_kms_nike_response(kms_response){
+    $(".status_message").text(kms_response.notice);
     $(".kms_counter").text(kms_response.sinparun_kms);
     $(".total_kms_counter").text(kms_response.total_kms);
     $('.level_counter').text(kms_response.level);
@@ -84,7 +84,7 @@ window.onload = function() {
     };
 
     function get_kms_runtastic_response(kms_response_runtastic){
-      $(".message").text("updated synchronization");
+      $(".status_message").text(kms_response_runtastic.notice);
       $(".kms_counter").text(kms_response_runtastic.sinparun_kms);
       $(".total_kms_counter").text(kms_response_runtastic.total_kms);
       $('.level_counter').text(kms_response_runtastic.level);

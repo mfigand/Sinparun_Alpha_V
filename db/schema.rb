@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20170222111336) do
     t.integer  "runtastic_last_total_kms", default: 0
     t.integer  "level",                    default: 0
     t.integer  "races",                    default: 0
+    t.string   "notice"
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
     t.integer  "user_id"
