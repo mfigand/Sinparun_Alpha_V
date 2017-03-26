@@ -4,8 +4,10 @@ class Company < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :rewards
   has_many :branches
+  has_many :rewards, through: :branches
+  #has_many :employees, through: :branches
+
 
   validates :name, :email, uniqueness: true, presence: true, length: { maximum: 250 }
   validates :password, presence: true

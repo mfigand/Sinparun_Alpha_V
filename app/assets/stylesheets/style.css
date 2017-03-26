@@ -39,6 +39,18 @@ body {
   /*height: 90%;*/
 }
 
+label {
+  width: 100px;
+}
+
+th {
+  text-align: center;
+}
+
+td {
+  padding: 2px;
+}
+
 #page {
   position: relative;
   overflow-x: hidden;

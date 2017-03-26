@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   resources :companies do
     resources :branches do 
-      resources :rewards
+      resources :rewards, :employees
     end
   end
 

@@ -1,1 +1,7 @@
+Start postgres server
+
 pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
+
+Fixed update errors
+
+rm -rf /usr/local/var/postgres && initdb /usr/local/var/postgres -E utf8

@@ -41,7 +41,34 @@
 
                   <div class="col-lg-12 col-sm-12 tab-pane fade in active" id="tab1">
                     <div class="col-lg-12 col-sm-12">
-                      <h3>Branches</h3>
+                      <span><a href="<%= new_company_branch_path(current_company.id) %>" class="">Add Branch</a></span>
+                      
+                        <ul>
+                          <div class="">
+                            <table class="table-hover">
+                              <thead>
+                                <tr>
+                                    <th data-field="name">Name</th>
+                                    <th data-field="name">Address</th>
+                                    <th data-field="price">Action</th>
+                                </tr>
+                              </thead>
+
+                              <tbody>
+                                <tr>
+                                  <% @branches.each_with_index do |branch, index| %>
+                                    <td class="title_boxes"><%= "#{branch.name}" %></td>
+                                    <td class="title_boxes"><%= "#{branch.address}" %></td>
+                                    <td><a href="<%= company_branch_path(current_company.id, branch.id) %>">Show</a>
+                                      - <a data-method="DELETE" href="<%= company_branch_path(current_company.id, branch.id) %>">Delete</a>
+                                    </td>
+                                  <% end %>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </ul>
+
                     </div>
                   </div>
                   
