@@ -1,0 +1,69 @@
+
+
+
+<header id="fh5co-header" class="fh5co-cover" data-section="home" role="banner" style="background-image:url(<%= @imgBackground %>);" data-stellar-background-ratio="0.5">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="display-t">
+          <div class="display-tc animate-box" data-animate-effect="fadeIn" style="text-align: center;">
+
+
+
+            <h2 class="title is-2 sync_label"><%= @branch.name%> </h2>
+              <br>
+              <section class="row">
+                <div class="statistics2 font_2">
+                  <div class="col-md-6">
+                    <ul>
+                      <strong>Name:</strong> <span class="js-branch-name" data-branch-name='<%= @branch.name %>' > <%= @branch.name %></span>
+                      <br>
+                      <strong>Address:</strong> <span class="js-branch-address" data-branch-address='<%= @branch.address %>' > <%= @branch.address %> </span>
+                      <br>
+                      <strong>Phone:</strong> <%= @branch.phone %>
+                      <br>
+                      <strong>Schedule:</strong> <%= @branch.schedule %>
+                      <br>
+                      <strong>City:</strong> <%= @branch.city %>
+                      <br>
+                      <strong>State:</strong> <%= @branch.state %>
+                      <br>
+                      <strong>Country:</strong> <%= @branch.country %>
+                      <br>
+                      <strong>Url:</strong><a href="http://<%= @branch.url %>" target="_blank" > <%= @branch.url %></a>
+                      <span class="js-rewards-lat" data-rewards-lat='<%= @branch.latitude %>'> </span>
+                      <span class="js-rewards-long" data-rewards-long='<%= @branch.longitude %>'></span>
+                      <% @branch.company.rewards.each_with_index do | reward, j| %>
+                        <span class="js-rewards-name" data-rewards-name='<%= reward.name %>'></span>
+                      <% end %>
+                      <br>
+                    </ul>
+                  </div>
+                  <div class="col-md-6">
+                    <div id="rewards_map2"></div>
+                  </div>
+                </div>
+              </section>
+
+              <section class="row">
+                <div class="col-md-12">
+                  <a href="<%= company_branch_employees_path(current_company.id,@branch.id) %>" class="btn" >Employees</a>
+                  <a href="<%= company_branch_rewards_path(current_company.id,@branch.id) %>" class="btn" >Rewards</a>
+                </div>
+              </section>
+
+              <br>
+              <a href="<%= edit_company_branch_path(current_company.id,params[:id]) %>">Edit branch</a>
+              <br>
+              <a href="<%= company_path(current_company.id) %>">Back to Company</a>
+
+
+
+                 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

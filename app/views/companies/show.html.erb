@@ -119,38 +119,17 @@
             <div class="feature-center animate-box" data-animate-effect="fadeIn">
               <h3>Branches list:</h3>
               
+              
               <div class="project-content">
                 <div class="col-forth" style="width: 100%;">
-                  <div class="project animate-box" style="background-image:url(/images/project-8.jpg);">
-                    <a href="#" class="desc">
-                      <span>Application</span>
-                      <h3>Project Name</h3>
-                    </a>
-                  </div>
-                </div>
-                <div class="col-forth" style="width: 100%;">
-                  <div class="project animate-box" style="background-image:url(/images/project-1.jpg);">
-                    <a href="#" class="desc">
-                      <span>Application</span>
-                      <h3>Project Name</h3>
-                    </a>
-                  </div>
-                </div>
-                <div class="col-forth" style="width: 100%;">
-                  <div class="project animate-box" style="background-image:url(/images/project-2.jpg);">
-                    <a href="#" class="desc">
-                      <span>Application</span>
-                      <h3>Project Name</h3>
-                    </a>
-                  </div>
-                </div>
-                <div class="col-forth" style="width: 100%;">
-                  <div class="project animate-box" style="background-image:url(/images/project-3.jpg);">
-                    <a href="#" class="desc">
-                      <span>Application</span>
-                      <h3>Project Name</h3>
-                    </a>
-                  </div>
+                  <% @branches.each_with_index do |branch, index| %>
+                    <div class="project animate-box" style="background-image:url(/images/project-8.jpg);">
+                      <a href="#" class="desc">
+                        <span><%= "#{branch.name}" %></span>
+                        <h3><%= "#{branch.name}" %> rewards</h3>
+                      </a>
+                    </div>     
+                  <% end %>
                 </div>
               </div>
 
