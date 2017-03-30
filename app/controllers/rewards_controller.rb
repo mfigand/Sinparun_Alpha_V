@@ -20,8 +20,7 @@ class RewardsController < ApplicationController
   end
 
   def new
-    @branch = Branch.find(params[:branch_id])
-    @reward = Reward.new
+    @reward = Branch.find(params[:branch_id]).reward
   end
 
   def create
