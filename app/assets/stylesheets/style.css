@@ -40,7 +40,7 @@ body {
 }
 
 label {
-  width: 100px;
+  width: 120px;
 }
 
 th {
@@ -50,6 +50,10 @@ th {
 td {
   padding: 2px;
 }
+
+input[type="number"]{
+  min-width: 190px;
+} 
 
 #page {
   position: relative;

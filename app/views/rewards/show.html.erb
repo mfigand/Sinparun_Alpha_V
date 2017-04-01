@@ -15,16 +15,23 @@
             <br>
 
             <div class="row statistics2 font_2">
-              <section class="col-md-6">
+              <section class="col-md-6" style="text-align: left;">
                 <ul>
-                  <li> <strong>Name:</strong> <%= "#{@reward.name}" %></li>
-                  <li> <strong>Kms cost:</strong> <%= "#{@reward.kms_cost}" %></li>
-                  <li> <strong>Description:</strong> <%= "#{@reward.description}" %></li>
-                  <li> <strong>Valid from:</strong> <%= "#{@reward.valid_from.to_date}" %></li>
-                  <li> <strong>Valid through:</strong> <%= "#{@reward.valid_through.to_date}" %></li>
-                  <li> <strong>Available units:</strong> <%= "#{@reward.available_units}" %></li>
-                  <li> <strong>Reserved units:</strong> <%= "#{@reward.reserved_units}" %></li>
-                  <li> <strong>Charged units:</strong> <%= "#{@reward.charged_units}" %></li>
+                  <strong>Name:</strong> <%= "#{@reward.name}" %>
+                  <br>
+                  <strong>Kms cost:</strong> <%= "#{@reward.kms_cost}" %>
+                  <br>
+                  <strong>Description:</strong> <%= "#{@reward.description}" %>
+                  <br>
+                  <strong>Valid from:</strong> <%= "#{@reward.valid_from.to_date}" %>
+                  <br>
+                  <strong>Valid through:</strong> <%= "#{@reward.valid_through.to_date}" %>
+                  <br>
+                  <strong>Available units:</strong> <%= "#{@reward.available_units}" %>
+                  <br>
+                  <strong>Reserved units:</strong> <%= "#{@reward.reserved_units}" %>
+                  <br>
+                  <strong>Charged units:</strong> <%= "#{@reward.charged_units}" %>
                   <br>
                 </ul>
               </section>
@@ -36,7 +43,7 @@
               </section>
             </div>
             <br>
-            <a href="<%= company_rewards_path(current_company.id) %>">My Rewards</a>
+            <a href="<%= company_branch_rewards_path(current_company.id,params[:branch_id]) %>">My Rewards</a>
             <br>
             <a href="<%= company_path(current_company.id)%>">Back to Company profile</a>
 

@@ -8,27 +8,27 @@
 <% end%>
 
 
-<%= form_for [current_company,@reward] do |f| %>
+<%= form_for [current_company,@branch,@reward] do |f| %>
   <%= f.label :name %>
-  <%= f.text_field :name, size: 10, required:'' %>
+  <%= f.text_field :name, required:'' %>
   <br>
   <%= f.label :kms_cost %>
-  <%= f.number_field :kms_cost, size: 10, within: 1...1000, required:''%>
+  <%= f.number_field :kms_cost, within: 1...1000, required:''%>
   <br>
   <%= f.label :description %>
-  <%= f.text_field :description, size: 10, required:'' %>
+  <%= f.text_field :description, required:'' %>
   <br>
   <%= f.label :valid_from %>
-  <%= f.date_field :valid_from, size: 10, class: "valid_from", value: Time.now.to_date, min: Time.now.to_date, required:'' %>
+  <%= f.date_field :valid_from, class: "valid_from", value: Time.now.to_date, min: Time.now.to_date, required:'' %>
   <br>
   <%= f.label :valid_through %>
-  <%= f.date_field :valid_through, size: 10, class: "valid_through", value: Time.now.to_date+30.days, min: Time.now.to_date, required:'' %>
+  <%= f.date_field :valid_through, class: "valid_through", value: Time.now.to_date+30.days, min: Time.now.to_date, required:'' %>
   <br>
   <%= f.label :available_units %>
-  <%= f.number_field :available_units, size: 10, within: 1...100, required:'' %>
+  <%= f.number_field :available_units, within: 1...100, required:'' %>
   <br>
   <%= f.label :image %>
-  <%= f.file_field :image, size: 10, required:'' %>
+  <%= f.file_field :image, required:'' %>
   <br>
 
   <%= f.submit 'Save' %>

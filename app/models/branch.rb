@@ -1,7 +1,9 @@
 class Branch < ActiveRecord::Base
 
   belongs_to :company
-  belongs_to :reward
+  has_many :rewards
+  # belongs_to :reward
+  
   #belongs_to :employees
 
 

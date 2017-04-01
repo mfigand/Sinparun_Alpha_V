@@ -5,7 +5,8 @@ class Company < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :branches
-  has_many :rewards, through: :branches
+  has_many :rewards
+  #has_many :rewards, through: :branches
   #has_many :employees, through: :branches
 
 

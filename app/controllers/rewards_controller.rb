@@ -2,7 +2,8 @@ class RewardsController < ApplicationController
 
   def index
     @company = Company.find(params[:company_id])
-    @rewards = @company.rewards
+    @branch = Branch.find(params[:branch_id])
+    @rewards = @branch.rewards
   end
 
   def reset_filterrific
@@ -20,16 +21,17 @@ class RewardsController < ApplicationController
   end
 
   def new
-    @reward = Branch.find(params[:branch_id]).reward
+    @branch = Branch.find(params[:branch_id])
+    @reward = Reward.new
   end
 
   def create
-    #@company = Company.find(params[:company_id])
     @reward = Reward.new reward_params
     @reward.company_id = params[:company_id]
+    @reward.branch_id = params[:branch_id]
     if @reward.save
       flash[:notice] = "Reward created succesfully"
-      redirect_to company_rewards_path(current_company.id,params[:id])
+      redirect_to company_branch_reward_path(current_company.id,params[:branch_id],@reward.id)
     else
       flash[:alert] = "ALERT Reward not created"
       render 'new'
@@ -44,13 +46,13 @@ class RewardsController < ApplicationController
   def destroy
     @reward = Reward.find(params[:id])
     @reward.destroy
-    redirect_to company_rewards_path(current_company.id,params[:id])
+    redirect_to company_branch_rewards_path(current_company.id,params[:branch_id],params[:id])
   end
 
   private
 
   def reward_params
-   params.require(:reward).permit(:name, :kms_cost, :description, :valid_from, :valid_through, :available_units, :image)
+   params.require(:reward).permit(:name, :kms_cost, :description, :valid_from, :valid_through, :available_units, :image, :image_file_name)
   end
 
 end

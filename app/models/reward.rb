@@ -1,7 +1,9 @@
 class Reward < ActiveRecord::Base
 
-  has_many :branches
-  has_one :company, through: :branches
+  belongs_to :branch
+  belongs_to :company
+  # has_one :company, through: :branches
+  #has_many :companies, through: :branches
   #belongs_to :user
   #has_many :coupons
 
