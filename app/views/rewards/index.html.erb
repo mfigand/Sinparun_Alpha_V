@@ -90,7 +90,7 @@
                               <td><%= "#{reward.available_units}" %></td>
                               <td><%= "#{reward.reserved_units}" %></td>
                               <td><%= "#{reward.charged_units}" %></td>
-                              <td><a href="<%= company_reward_path(current_company.id, @branch.id) %>">Show</a> / <a data-method="DELETE" href="<%= company_reward_path(current_company.id, reward.id) %>">Delete</a></td>
+                              <td><a href="<%= company_branch_rewards_path(current_company.id,@branch.id) %>">Show</a> / <a data-method="DELETE" href="<%= company_branch_rewards_path(current_company.id,@branch.id) %>">Delete</a></td>
                             </tr>
 
                           </tbody>
