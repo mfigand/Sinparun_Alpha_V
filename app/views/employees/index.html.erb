@@ -1,0 +1,53 @@
+
+
+<header id="fh5co-header" class="fh5co-cover" data-section="home" role="banner" style="background-image:url(<%= @imgBackground %>);" data-stellar-background-ratio="0.5">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="display-t">
+          <div class="display-tc animate-box" data-animate-effect="fadeIn" style="text-align: center;">
+
+
+
+
+            <h2 class="title is-2 sync_label"><%= @branch.name%>'s employees </h2>
+            <br>
+
+
+            <div class="row">
+              <div class="col-md-12">
+                <h5> Active Employees</h5>
+                <% @employees.each_with_index do |employee, index| %>
+          
+                    <div class="collapsible-header"><%= employee.name %>
+                      <a href="<%= company_branch_employee_path(params[:company_id],params[:branch_id],employee.id) %>">Show</a> / 
+                      <a data-method="DELETE" href="<%= company_branch_employee_path(params[:company_id],params[:branch_id],employee.id) %>">Delete</a>
+                    </div>
+                
+                <% end %>
+              </div>
+
+              <div class="col-md-12">
+                <br>
+                <h5> Inactive Employees</h5>
+           
+              </div>
+
+            </div>
+
+            <br>
+            <a href="<%= new_company_branch_employee_path(params[:company_id],params[:branch_id]) %>" class="row btn" >Add Employee</a>
+            <br>
+            <a href="<%= company_branch_path(params[:company_id],params[:branch_id]) %>">Back to Branch</a>
+
+
+
+
+                 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   devise_for :companies
+  devise_for :employees
 
   root to: "site#home"
   
@@ -19,6 +20,10 @@ Rails.application.routes.draw do
     resources :branches do 
       resources :rewards, :employees
     end
+  end
+
+  resources :employees do
+    resources :coupons
   end
 
 end

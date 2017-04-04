@@ -14,6 +14,7 @@ class CreateBranches < ActiveRecord::Migration
 
       t.references :company, index: true
       t.references :reward, index: true
+      t.references :employee, index: true
     end
   end
 end

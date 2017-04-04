@@ -25,3 +25,9 @@ camiseta, short, gorra, pulsometro = Reward.create([
   {name: 'Gorra', kms_cost: 20, available_units: 50, description: 'Gorra Running', valid_from: "2017-04-01 00:00:00", valid_through: "2017-05-01 00:00:00", image_file_name: "3.JPG", image_content_type: "image/jpeg", image_file_size: 1372943, image_updated_at: "2017-04-01 17:20:25", company_id: 1, branch_id: 1},
   {name: 'Pulsometro', kms_cost: 1000, available_units: 1, description: 'Pulsometro Running', valid_from: "2017-03-01 00:00:00", valid_through: "2017-04-01 00:00:00", image_file_name: "3.JPG", image_content_type: "image/jpeg", image_file_size: 1372943, image_updated_at: "2017-04-01 17:20:25", company_id: 1, branch_id: 1}
 ])
+
+daniel, diana, marta = Employee.create([
+  {name: 'Daniela', email: 'daniela@gmail.com', password: '12345678', phone: '123456789', branch_id: 1, company_id: 1},
+  {name: 'Diana', email: 'diana@gmail.com', password: '12345678', phone: '123456789', branch_id: 1, company_id: 1},
+  {name: 'Marta', email: 'marta@gmail.com', password: '12345678', phone: '123456789', branch_id: 1, company_id: 1}
+])

@@ -6,6 +6,7 @@ class Company < ActiveRecord::Base
 
   has_many :branches
   has_many :rewards
+  has_many :employees
   #has_many :rewards, through: :branches
   #has_many :employees, through: :branches
 
