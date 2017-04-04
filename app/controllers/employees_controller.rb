@@ -26,6 +26,7 @@ class EmployeesController < ApplicationController
   def show
     @branch = Branch.find(params[:branch_id])
     @employee = Employee.find(params[:id])
+    #@rewards = @employee.rewards
   end
 
   def destroy
