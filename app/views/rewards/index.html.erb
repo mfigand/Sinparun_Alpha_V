@@ -20,7 +20,7 @@
                 <h5> Active Rewards</h5>
                 <% @rewards.each_with_index do |reward, index| %>
                   <% if reward.valid_through > Time.now %>
-                <ul class="collapsible" data-collapsible="accordion">
+                    <ul class="collapsible" data-collapsible="accordion">
                   
                     <div class="collapsible-header"><%= reward.name %></div>
                     <div class="collapsible-body">
@@ -53,8 +53,7 @@
                           </tbody>
                         </table>
                     </div>
-                  
-                </ul>
+                  </ul>
                 <% end %>
               <% end %>
               </div>
