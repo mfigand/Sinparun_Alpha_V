@@ -11,6 +11,8 @@ class ApplicationController < ActionController::Base
       user_path(current_user.id)
     elsif company_signed_in?
      company_path(current_company.id)
+    elsif employee_signed_in?
+     employee_path(current_company.id)
    end
  end
 

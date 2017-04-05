@@ -1,5 +1,7 @@
 class EmployeesController < ApplicationController
 
+#before_action :authenticate_employee!, except: :update, except: :index
+
   def index
     @branch = Branch.find(params[:branch_id])
     @employees = @branch.employees

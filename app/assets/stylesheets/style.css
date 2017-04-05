@@ -43,6 +43,10 @@ label {
   width: 120px;
 }
 
+.select_branch{
+  width: 195px;
+}
+
 th {
   text-align: center;
 }
